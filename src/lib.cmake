@@ -56,6 +56,7 @@ INCLUDE_DIRECTORIES(
 # Add common source file
 FILE(GLOB SOURCE_FILES     
 	"${CMAKE_CURRENT_SOURCE_DIR}/core/*"        
+	"${CMAKE_CURRENT_SOURCE_DIR}/raw/*"        
 	"${CMAKE_CURRENT_SOURCE_DIR}/filter/*"         
 	"${CMAKE_CURRENT_SOURCE_DIR}/source/*"       
 	"${CMAKE_CURRENT_SOURCE_DIR}/target/*"                               
@@ -66,6 +67,7 @@ FILE(GLOB SOURCE_FILES
 # Add export header file
 FILE(GLOB EXPORT_HEADER 
 	"${CMAKE_CURRENT_SOURCE_DIR}/core/*.h"         
+	"${CMAKE_CURRENT_SOURCE_DIR}/raw/*.h"         
 	"${CMAKE_CURRENT_SOURCE_DIR}/filter/*.h"         
 	"${CMAKE_CURRENT_SOURCE_DIR}/source/*.h"       
 	"${CMAKE_CURRENT_SOURCE_DIR}/target/*.h"                      
