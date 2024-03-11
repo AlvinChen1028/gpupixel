@@ -209,18 +209,19 @@ int SourceRawDataInput::genTextureWithRGBA(const uint8_t* pixels,
                         _framebuffer->getHeight() != height)) {
     _framebuffer =
         GPUPixelContext::getInstance()->getFramebufferCache()->fetchFramebuffer(
-            stride, height);
+            width, height);
   }
   this->setFramebuffer(_framebuffer, NoRotation);
 
   GLuint texture = _textures[3];
+  //GLuint texture = this->getFramebuffer()->getTexture();
   CHECK_GL(glBindTexture(GL_TEXTURE_2D, texture));
 
 #if defined(GPUPIXEL_IOS) || defined(GPUPIXEL_MAC)
   CHECK_GL(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, stride, height, 0, GL_BGRA,
                         GL_UNSIGNED_BYTE, pixels));
 #else
-  CHECK_GL(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, stride, height, 0, GL_RGBA,
+  CHECK_GL(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA,
                         GL_UNSIGNED_BYTE, pixels));
 #endif
 

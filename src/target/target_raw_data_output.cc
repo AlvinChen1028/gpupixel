@@ -318,7 +318,7 @@ void TargetRawDataOutput::readPixelsWithPBO(int width, int height) {
   CHECK_GL(glBindBuffer(GL_PIXEL_PACK_BUFFER, pboIds[index]));
   CHECK_GL(glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, 0));
   // map the PBO to process its data by CPU
-  CHECK_GL(glBindBuffer(GL_PIXEL_PACK_BUFFER, pboIds[nextIndex]));
+  // CHECK_GL(glBindBuffer(GL_PIXEL_PACK_BUFFER, pboIds[nextIndex]));
 
 #if defined(GPUPIXEL_MAC) || defined(GPUPIXEL_WIN) || defined(GPUPIXEL_LINUX)
   GLubyte* ptr = (GLubyte*)glMapBuffer(GL_PIXEL_PACK_BUFFER, GL_READ_ONLY);
