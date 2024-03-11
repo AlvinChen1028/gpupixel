@@ -8,6 +8,7 @@ SET(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}")
 
 # 定义当前模块的名称
 SET(APP_PROJECT_NAME "gpupixel_app")
+SET(APP2_NAME "gpupixel_app2")
 PROJECT(${APP_PROJECT_NAME})
 
 # 定义是否编译 DEBUG 版本(也可以在执行 cmake 指令的时候设置：cmake -DBUILD_DEBUG=ON ..)

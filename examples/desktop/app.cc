@@ -5,7 +5,6 @@
 #include "gpupixel.h"
 using namespace gpupixel;
 
-
 std::shared_ptr<BeautyFaceFilter> beauty_face_filter_;
 std::shared_ptr<FaceReshapeFilter> face_reshape_filter_;
 std::shared_ptr<gpupixel::FaceMakeupFilter> lipstick_filter_;

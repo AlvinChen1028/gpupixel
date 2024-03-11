@@ -51,10 +51,9 @@ INCLUDE_DIRECTORIES(
  
 # Add common source file
 FILE(GLOB SOURCE_FILES 
-	"${CMAKE_CURRENT_SOURCE_DIR}/desktop/*" 
+	"${CMAKE_CURRENT_SOURCE_DIR}/desktop/app.cc" 
 	)
  
-
 # Add platform source and header and lib link search path
 IF(${CURRENT_OS} STREQUAL "windows") 														# windows
 	# link libs find path
@@ -66,14 +65,24 @@ ELSEIF(${CURRENT_OS} STREQUAL "linux")
 	# list(APPEND SOURCE_FILES ${GLAD_SOURCE_FILE})
 ENDIF()
 
+
 # build type: executable
 # ------
 ADD_EXECUTABLE(${PROJECT_NAME} ${SOURCE_FILES})
- 
+
+FILE(GLOB APP2_SOURCE_FILES 
+	"${CMAKE_CURRENT_SOURCE_DIR}/desktop/app2.cc" 
+	)
+ADD_EXECUTABLE(${APP2_NAME} ${APP2_SOURCE_FILES})
+
 # link libs
 # -------
 IF(${CURRENT_OS} STREQUAL "linux")
 	TARGET_LINK_LIBRARIES(${PROJECT_NAME} 
+						gpupixel
+						GL
+						glfw)
+	TARGET_LINK_LIBRARIES(${APP2_NAME} 
 						gpupixel
 						GL
 						glfw)
